@@ -1,0 +1,71 @@
+
+spring:
+    application:
+        name: "gatewayserver"
+
+    config:
+        import: "optional:configserver:http://localhost:8071/"
+    cloud:
+        gateway:
+            discovery:
+                locator:
+                    enabled: false                 # for disabling the default routing
+                    lowercase-service-id: true    # allow to give service name in lowercase instead of uppercase in uri
+info:
+    app:
+        name: "gatewayserver"
+        description: "EazyBank GatewayServer Application"
+        version: "1.0.0"
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        gateway:
+            enabled: true
+
+logging:
+    level:
+        com:
+            example:
+                gatewayserver: DEBUG
+
+
+
+
+#
+#rabbitmq:
+#    host: "localhost"
+#    port: 5672
+#    username: "guest"
+#    password: "guest"
+
+
+
+
+#    config:
+#        import:
+#            - "application_qa.yml"
+#            - "application_prod.yml"
+#    profiles:
+#        active:
+#            - "qa"
+#
+#
+#build:
+#    version: "3.O"
+#
+## here prefix name is accounts
+#accounts:
+#    message: "Welcome to EazyBank accounts related local APIs"
+#    contactDetails:
+#        name: "Tushar-Developer"
+#        email: "tushar@eazybytes.com"
+#    onCallSupport:
+#        -(555)555-124
+#        -(555)555-125
+
+
+

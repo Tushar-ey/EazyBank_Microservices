@@ -1,0 +1,14 @@
+
+
+build:
+  version: "1.O"
+
+# here prefix name is accounts
+accounts:
+  message: "Welcome to EazyBank accounts related prod APIs"
+  contactDetails:
+    name: "Jaicob-Product Ownerr"
+    email: "jaicob@eazybytes.com"
+  oncCallSupport:
+    -(444)444-124
+    -(444)444-125

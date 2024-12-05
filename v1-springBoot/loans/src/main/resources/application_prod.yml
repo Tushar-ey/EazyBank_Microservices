@@ -1,0 +1,17 @@
+
+config:
+    activate:
+        on-profile: "prod"
+
+
+build:
+  version: "1.0"
+
+loans:
+  message: "Welcome to EazyBank Loans APIs "
+  contactDetails:
+    name: "Shelly - Product Owner"
+    email: "shelly@eazybank.com"
+  onCallSupport:
+    - (333) 999-7654
+    - (333) 564-9876

@@ -1,0 +1,6 @@
+Section 4 
+
+In this we create deploy the microservice on docker hub 
+by creating the images of each microservice .
+Create docker image through dockerFile, buildpack and Google Jib.
+And push these images in docker hub.

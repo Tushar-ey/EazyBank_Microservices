@@ -1,0 +1,19 @@
+
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+
+build:
+  version: "2.0"
+
+# here prefix name is accounts
+accounts:
+  message: "Welcome to EazyBank accounts related QA APIs"
+  contactDetails:
+    name: "Anjali- QA Lead"
+    email: "anjali@eazybytes.com"
+  oncCallSupport:
+    -(666)666-124
+    -(666)666-125

@@ -1,0 +1,19 @@
+Section 6
+
+In this module we configration the properties through @Value, Environment, @ConfiguredProperties.
+And configure the Spring Boot profiles.
+Externalize configuration using command line, JVM, environment options.
+Use the Spring cloud config -> central server where we store our all configration properties.(accounts, loans, cards)
+We have one more microservice configserver.
+Store properties files in -> classpath, file system, github repo.
+Then use the actuator-> For refresh
+
+For refresh at runtime-> use spring cloud bus -> Use RabbitMq and Use the webhooks (hookdeck mediator for webhooks).
+
+Make docker image of each microservice using google jib.
+And push docker images into docker hub.
+
+
+
+
+
