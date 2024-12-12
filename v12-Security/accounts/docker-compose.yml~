@@ -1,0 +1,39 @@
+services:
+  accounts:
+    image: "tushar601/accounts:s6"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - tushar601
+
+
+  loans:
+      image: "tushar601/loans:s6"
+      container_name: loans-ms
+      ports:
+        - "8090:8090"
+      deploy:
+        resources:
+          limits:
+            memory: 700m
+      networks:
+        - tushar601
+
+
+  cards:
+    image: "tushar601/cards:s6"
+    container_name: cards-ms
+    ports:
+      - "9001:9001"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - tushar601
+  
