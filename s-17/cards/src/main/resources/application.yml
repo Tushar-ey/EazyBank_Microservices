@@ -1,0 +1,119 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: "cards"
+  profiles:
+    active: "prod"
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: ""
+
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+info:
+  app:
+    name: "cards"
+    description: "EazyBank Cards Application"
+    version: "1.0.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+endpoints:
+  shutdown:
+    enabled: true
+
+logging:
+  level:
+    com:
+      eazybytes:
+        cards: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+
+
+
+#
+#rabbitmq:
+#  host: "localhost"
+#  port: 5672
+#  username: "guest"
+#  password: "guest"
+
+
+
+#  config:
+#    import:
+#      - "application_qa.yml"
+#      - "application_prod.yml"
+#  profiles:
+#    active:
+#      - "qa"
+#
+#build:
+#  version: "3.0"
+#
+#cards:
+#  message: "Welcome to EazyBank cards related local APIs "
+#  contactDetails:
+#    name: "Tushar -Developer"
+#    email: "tushar@eazybank.com"
+#  onCallSupport:
+#    - (412) 419-3491
+#    - (915) 382-1932
+
+
+
+
+#springdoc:
+#  api-docs:
+#    path: /v4/api-docs
+#  swagger-ui.path: /swagger-ui.html

@@ -1,0 +1,6 @@
+package com.eazybank.loans.audit;
+
+import org.springframework.data.domain.AuditorAware;
+
+public class AuditAwareImpl extends AuditorAware<String> {
+}

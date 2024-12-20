@@ -1,0 +1,112 @@
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: "loans"
+  profiles:
+    active: "prod"
+  datasource:
+      url: jdbc:h2:mem:testdb
+      driverClassName: org.h2.Driver
+      username: sa
+      password: ''
+  h2:
+      console:
+          enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+  cloud:
+    kubernetes:
+      discovery:
+        all-namespaces: true
+
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true                # means register with eureka server with IP address
+#  client:
+#    fetch-registry: true              # means fetch information from the registry
+#    register-with-eureka: true
+#    serviceUrl:
+#      defaultZone: http://localhost:8070/eureka
+info:
+  app:
+    name: "loans"                                     # give the information of loans microservice in eureka dashboard
+    description: "EazyBank Loans Application"
+    version: "1.0.0"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+endpoints:
+  shutdown:
+    enabled: true
+
+
+logging:
+  level:
+    com:
+      eazybank:
+        loans: DEBUG
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
+
+
+
+#
+#rabbitmq:
+#  host: "localhost"
+#  port: 5672
+#  username: "guest"
+#  password: "guest"
+
+
+
+#  config:
+#    import:
+#      - "application_qa.yml"
+#      - "application_prod.yml"
+#  profiles:
+#    active:
+#      - "qa"
+#
+#
+#build:
+#  version: "3.0"
+#
+#loans:
+#  message: "Welcome to EazyBank Loans APIs "
+#  contactDetails:
+#    name: "Shruti Puri - Developer"
+#    email: "shrutipuri@eazybank.com"
+#  onCallSupport:
+#    - (999) 432-2356
+#    - (999) 564-8721
