@@ -1,0 +1,4 @@
+package com.eazybank.loans.exception;
+
+public class ResourceNotFoundException {
+}
