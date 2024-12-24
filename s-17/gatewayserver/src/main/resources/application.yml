@@ -3,7 +3,6 @@ spring:
     application:
         name: "gatewayserver"
 
-
     config:
         import: "optional:configserver:http://localhost:8071/"
 
@@ -20,7 +19,6 @@ spring:
             client:
                 health-indicator:
                     enabled: false
-
     data:
         redis:
             connect-timeout: 2s
@@ -31,7 +29,6 @@ spring:
         oauth2:
             resourceserver:
                 jwt:
-                    issuer-uri: "http://localhost:7080/realms/master"
                     jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
 
 management:

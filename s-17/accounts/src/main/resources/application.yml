@@ -29,14 +29,6 @@ spring:
                 binder:
                     brokers:
                         - localhost:9092
-
-
-    rabbitmq:
-        host: "localhost"
-        port: 5672
-        username: "guest"
-        password: "guest"
-
     profiles:
         active: "prod"
 
@@ -54,17 +46,6 @@ spring:
             dialect: org.hibernate.dialect.H2Dialect
             ddl-auto: update
         database-platform: org.hibernate.dialect.H2Dialect
-
-
-#eureka:
-#    instance:
-#        preferIpAddress: true           # the service should register using its Ip address instead of hostanme
-#    client:
-#        fetch-registry: true
-#        register-with-eureka: true
-#        serviceUrl:
-#            defaultZone: http://localhost:8070/eureka
-
 
 management:
     endpoints:
